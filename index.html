@@ -2,28 +2,67 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pavel Gubkin's personal website</title>
     <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #e0f7fa;     /* мягкий голубой фон */
-      }
-      body {
-        text-align: center;
-      }
-      h1 {
-        color: #01579b;               /* тёмно‑синий текст для контраста */
-        font-family: "Arial", sans-serif;
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Hi, this is my personal site! Soon I will post more useful information there</h1>
+  /* Основной контейнер, который ограничивает ширину всего контента */
+  .main-wrapper {
+    max-width: 800px;
+    margin: 0 auto; /* Центрирует всё содержимое на странице */
+    padding: 20px;
+  }
+
+  /* Блок с текстом и картинкой */
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Адаптивность: на мобильных всё встает в колонку */
+  @media (max-width: 600px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<div class="main-wrapper">
+  <h1>Pavel Gubkin</h1>
+  <hr>
+  
+  <div class="content-wrapper">
+    <div class="text-side">
+      <p>
+        Hi, my name is Pavel Gubkin, I am a mathematician at the 
+        <a href="https://eimi.ru/">Leonhard Euler Institute</a> in Saint Petersburg, Russia. 
+        Recently, under the supervision of Roman Bessonov, I've completed my PhD studies in the 
+        <a href="https://www.pdmi.ras.ru/pdmi/index.php">Saint Petersburg Department of Steklov Mathematical Institute</a>. 
+        My thesis was called <i>On the spectral theory of Dirac operators with square summable potentials</i>, 
+        see <a href="https://pdmi.ras.ru/pdmi/dissertatiton/2026-02-26t000000-губкин-павел-васильевич">this PDMI page</a>.
+      </p>
+	  <p> Lis of my papers and preprints can be found on 
+	  <a href="https://scholar.google.com/citations?user=x5g5qWEAAAAJ&hl">google scholar</a>, 
+	  <a href="https://arxiv.org/a/gubkin_p_1.html">arxiv</a> or <a href="https://orcid.org/0000-0002-0882-1087">ORCID</a>.
+	  </p>
+    </div>
+    
+    <div class="image-side">
+      <img src="tree.jpg" alt="Дерево" width="250">
+    </div>
+  </div>
+  
+  <div>
+    <p>
+         I also teach extra maths classes in Presidential Physics and Mathematics Lyceum No. 239 preparing high school kids for different mathematical olympiads.
+		 Here are the notes on different courses that we discussed: 
+		 <a href="areas.pdf" target="_blank">dissection problem and other area related topics</a>, 
+		 <a href="lagrange.pdf" target="_blank">Lagrange multipliers and calculus of variations</a>, 
+		 <a href="tch.pdf" target="_blank">number theory</a>. 
+      </p>
+
+  </div>
+  
+</div>
   </body>
 </html>
