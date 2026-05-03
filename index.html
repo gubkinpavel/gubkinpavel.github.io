@@ -18,7 +18,42 @@
     align-items: center;
     gap: 20px;
   }
+.btn {
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: #f5f5f5;
+    }
+    .hidden-text {
+      margin-top: 10px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      background: #f9f9f9;
+      display: none;   /* по умолчанию скрыто */
+    }
+	
+	a {
+    color: #004d99;
+    text-decoration: underline;
+  }
 
+  /* внешние ссылки (интернет) */
+  a[href^="http"] {
+    color: #0066cc;
+    text-decoration: underline;
+  }
+
+  /* ссылки на файлы по расширению */
+  a[href$=".pdf"],
+  a[href$=".doc"],
+  a[href$=".docx"],
+  a[href$=".zip"],
+  a[href$=".txt"] {
+    color: #006633;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
   /* Адаптивность: на мобильных всё встает в колонку */
   @media (max-width: 600px) {
     .content-wrapper {
@@ -35,16 +70,19 @@
     <div class="text-side">
       <p>
         Hi, my name is Pavel Gubkin, I am a mathematician at the 
-        <a href="https://eimi.ru/">Leonhard Euler Institute</a> in Saint Petersburg, Russia. 
+        <a href="https://eimi.ru/"  target="_blank">Leonhard Euler Institute</a> in Saint Petersburg, Russia. 
         Recently, under the supervision of Roman Bessonov, I've completed my PhD studies in the 
-        <a href="https://www.pdmi.ras.ru/pdmi/index.php">Saint Petersburg Department of Steklov Mathematical Institute</a>. 
+        <a href="https://www.pdmi.ras.ru/pdmi/index.php"  target="_blank">Saint Petersburg Department of Steklov Mathematical Institute</a>. 
         My thesis was called <i>On the spectral theory of Dirac operators with square summable potentials</i>, 
-        see <a href="https://pdmi.ras.ru/pdmi/dissertatiton/2026-02-26t000000-губкин-павел-васильевич">this PDMI page</a>.
+        see <a href="https://pdmi.ras.ru/pdmi/dissertatiton/2026-02-26t000000-губкин-павел-васильевич"  target="_blank">this PDMI page</a>.
       </p>
 	  <p> Lis of my papers and preprints can be found on 
-	  <a href="https://scholar.google.com/citations?user=x5g5qWEAAAAJ&hl">google scholar</a>, 
-	  <a href="https://arxiv.org/a/gubkin_p_1.html">arxiv</a> or <a href="https://orcid.org/0000-0002-0882-1087">ORCID</a>.
+	  <a href="https://scholar.google.com/citations?user=x5g5qWEAAAAJ&hl"  target="_blank">google scholar</a>, 
+	  <a href="https://arxiv.org/a/gubkin_p_1.html" target="_blank">arxiv</a> or 
+	  <a href="https://orcid.org/0000-0002-0882-1087" target="_blank">ORCID</a>.
 	  </p>
+
+
     </div>
     
     <div class="image-side">
@@ -62,7 +100,42 @@
       </p>
 
   </div>
-  
+    <button class="btn" onclick="toggleText()">Show list of talks</button>
+
+    <div id="extraText" class="hidden-text">
+      <ul>
+  <li>Резонансы одномерного оператора Шредингера, 06.04.26, Санкт-Петербургский семинар по теории операторов и теории функций, ПОМИ РАН,
+  <a href="https://www.youtube.com/watch?v=IkJBiNISLNM&t=2401s" target="_blank"> запись доклада</a>, 
+  <a href="talks/260406_resonances.pdf" target="_blank">конспект</a>;</li>
+  <li>Решение спектральной задачи модели Кронига-Пенни с помощью алгоритма Шура, 20.11.25, 
+  <a href="https://indico.eimi.ru/event/1948/" target="_blank"> 9-th St. Petersburg Youth Conference in Probability and Mathematical Physics</a>, 
+<a href="talks/251120_kronig-penney.pdf" target="_blank">слайды</a>;</li>  
+  </li>
+  <li>Stability of Schur’s algorithm, 16.09.25, 
+  <a href="https://siriusmathcenter.ru/061w" target="_blank"> Дни анализа в Сириусе: аппроксимация, оптимизация, восстановление данных и смежные вопросы</a>,
+<a href="talks/250916_stability.pdf" target="_blank">слайды</a>;</li>  
+  </li>
+  <li>
+	The spectral problem for the Kronig–Penney model of the Dirac operators in terms of Schur’s algorithm, 27.06.25, 
+  <a href="https://indico.eimi.ru/event/1893/ 23" target="_blank"> Спектральная теория и математическая физика, посвященной памяти М.Ш.Бирмана</a>,
+  <a href="talks/250627_kronig-penney.pdf" target="_blank">слайды</a>;</li>  
+  </li>
+</ul>
+    </div>
 </div>
+  <script>
+    function toggleText() {
+      const textBlock = document.getElementById("extraText");
+      const btn = document.querySelector(".btn");
+
+      if (textBlock.style.display === "block") {
+        textBlock.style.display = "none";
+        btn.textContent = "Show list of talks";
+      } else {
+        textBlock.style.display = "block";
+        btn.textContent = "Hide list of talks";
+      }
+    }
+  </script>
   </body>
 </html>
